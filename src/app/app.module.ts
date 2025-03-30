@@ -3,18 +3,22 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PokemonComponent } from './pokemon.component';
+import { PokemonsListComponent } from './PokemonsList.component';
 import { BorderCardDirective } from './border-card.directive';
 import { NgOptimizedImage } from '@angular/common';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
+import { TestRouteComponent } from './test-route/test-route.component';
+import { PokemonDetailsComponent } from './PokemonDetails/PokemonDetails.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
-    PokemonComponent,
+    PokemonsListComponent,
     BorderCardDirective,
     PokemonTypeColorPipe,
-  ],
+    TestRouteComponent,
+      PokemonDetailsComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

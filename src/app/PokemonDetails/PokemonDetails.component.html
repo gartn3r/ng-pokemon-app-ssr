@@ -1,0 +1,23 @@
+<div class="row my-1">
+  <div class="col s4" >
+      <div pkmCard="#279AF1" class="card darken-1" *ngIf="myPokemon != undefined">
+          <div class="card-content">
+              <div class="row" style="margin-bottom: 0;">
+                  <div class="col s6">
+                      <img [ngSrc]="myPokemon.picture" width="120" height="120"/>
+                  </div>
+                  <div class="col s6">
+                      <p>
+                          {{myPokemon.name}}
+                      </p>
+                      <p>
+                          {{myPokemon.created | date:"dd/MM/YYY" }}
+                      </p>
+                        
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div *ngIf="myPokemon == undefined">Aucun pokemon correspondant !</div>
+  </div>
+</div>

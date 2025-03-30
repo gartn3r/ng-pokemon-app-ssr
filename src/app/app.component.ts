@@ -1,16 +1,8 @@
 import { Component } from '@angular/core';
-import { PokemonComponent } from './pokemon.component';
 
 @Component({
   selector: 'app-root',
-  template: `
-   
-    <router-outlet />
-    <div class="container">
-    <h1>{{title}}</h1>
-    <fiche-pokemon pkmName="Pikachu"></fiche-pokemon>
-  </div>
-  `,
+  templateUrl:"layout.html",
   standalone: false,
   styles: [],
 })

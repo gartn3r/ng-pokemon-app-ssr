@@ -4,16 +4,16 @@ import { POKEMONS } from "./mock-pokemon-list";
 import { NgOptimizedImage } from "@angular/common";
 
 @Component({
-  selector: "fiche-pokemon",
+  selector: "pokemonsList",
   standalone: false,
-  templateUrl: "pokemon.component.html",
-  styleUrl: "pokemon.component.css",
+  templateUrl: "PokemonsList.component.html",
+  styleUrl: "PokemonsList.component.css",
 })
-export class PokemonComponent implements OnInit {
+export class PokemonsListComponent implements OnInit {
   pokemons: Pokemon[] = POKEMONS;
   firstPokemon = this.pokemons[0];
   selectedPokemon: Pokemon;
-@Input('pkmName') poke: string;
+  @Input("pkmName") poke: string;
   myPokemon: Pokemon;
 
   selectPokemon(pokemon: Pokemon) {
@@ -22,7 +22,9 @@ export class PokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.myPokemon = POKEMONS.find((x) => x.name == this.poke)!;
-
+    if (this.myPokemon == null || this.myPokemon == undefined) {
+      this.myPokemon = POKEMONS[0];
+    }
     console.log(`la valeur est ${this.myPokemon}`);
   }
 

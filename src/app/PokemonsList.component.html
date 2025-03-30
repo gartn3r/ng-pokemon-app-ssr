@@ -1,35 +1,14 @@
 <style>
  
 </style>
+y
 <input #userInput (keydown.enter)="GetPokemon(userInput.value)" type="text" placeholder="Rechercher un pokemon ..."/>
 <button class="waves-effect waves-light btn my-1" (click)="GetPokemon(userInput.value)">Rechercher</button>
-@if(selectedPokemon == undefined){
-    <p>Aucun pokemon selectionné</p>
-}
+<p *ngIf="selectPokemon == undefined">Aucun pokemon selectionné</p>
+
 <div class="my-1" *ngIf="selectedPokemon"> Pokemon trouvé : {{selectedPokemon.name}}</div>
 
-<div class="row my-1">
-    <div class="col s4" >
-        <div pkmCard="#279AF1" class="card darken-1" [class.selected]="selectedPokemon != undefined && myPokemon.name==selectedPokemon.name">
-            <div class="card-content" [class.white-text]="selectedPokemon != undefined && myPokemon.name==selectedPokemon.name">
-                <div class="row" style="margin-bottom: 0;">
-                    <div class="col s6">
-                        <img [ngSrc]="myPokemon.picture" width="120" height="120"/>
-                    </div>
-                    <div class="col s6">
-                        <p>
-                            {{myPokemon.name}}
-                        </p>
-                        <p>
-                            {{myPokemon.created | date:"dd/MM/YYY" }}
-                        </p>
-                          
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <div class="row my-1">
     <div *ngFor="let pokemon of pokemons" class="col s4" [attr.id]="pokemon.id">
