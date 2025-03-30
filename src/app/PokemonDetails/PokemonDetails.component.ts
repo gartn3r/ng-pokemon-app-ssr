@@ -18,7 +18,7 @@ export class PokemonDetailsComponent implements OnInit {
   ngOnInit() {
     let pokemonName = this.route.snapshot.paramMap.get("name");
     if (pokemonName) {
-      this.myPokemon = this.pokemons.find((x) => x.name == pokemonName);
+      this.myPokemon = this.pokemons.find((x) => x.name.toLowerCase() == pokemonName.toLowerCase());
     }
   }
 }
