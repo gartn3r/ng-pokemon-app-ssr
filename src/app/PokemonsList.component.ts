@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, signal } from "@angular/core";
 import { Pokemon } from "./pokemon";
 import { POKEMONS } from "./mock-pokemon-list";
 import { NgOptimizedImage } from "@angular/common";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "pokemonsList",
@@ -11,10 +12,16 @@ import { NgOptimizedImage } from "@angular/common";
 })
 export class PokemonsListComponent implements OnInit {
   pokemons: Pokemon[] = POKEMONS;
-  firstPokemon = this.pokemons[0];
+  firstPokemon = signal(this.pokemons[0]);
   selectedPokemon: Pokemon;
   @Input("pkmName") poke: string;
   myPokemon: Pokemon;
+
+  constructor(private router: Router) {}
+
+  goToPokemon(pokemon: Pokemon) {
+    this.router.navigate(["/pokemons", pokemon.name]);
+  }
 
   selectPokemon(pokemon: Pokemon) {
     console.log(pokemon.name);

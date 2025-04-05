@@ -9,6 +9,9 @@ import { NgOptimizedImage } from '@angular/common';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { TestRouteComponent } from './test-route/test-route.component';
 import { PokemonDetailsComponent } from './PokemonDetails/PokemonDetails.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [	
@@ -17,12 +20,14 @@ import { PokemonDetailsComponent } from './PokemonDetails/PokemonDetails.compone
     BorderCardDirective,
     PokemonTypeColorPipe,
     TestRouteComponent,
-      PokemonDetailsComponent
+      PokemonDetailsComponent,
+      PageNotFoundComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FormsModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
