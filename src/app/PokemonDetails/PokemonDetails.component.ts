@@ -1,7 +1,8 @@
-import { Component, computed, Input, OnInit, signal } from "@angular/core";
+import { Component, computed, inject, Input, OnInit, signal } from "@angular/core";
 import { Pokemon } from "../pokemon";
 import { POKEMONS } from "../mock-pokemon-list";
 import { ActivatedRoute, Router } from "@angular/router";
+import { PokemonService } from "../pokemon.service";
 
 @Component({
   selector: "app-PokemonDetails",
@@ -10,11 +11,12 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./PokemonDetails.component.css"],
 })
 export class PokemonDetailsComponent implements OnInit {
-  pokemons: Pokemon[] = POKEMONS;
   myPokemon: Pokemon | undefined;
   @Input() PkmName = "";
   Hp = signal(9);
   fullHp = computed(() => this.Hp() * 1000);
+
+  readonly #pokemonService = inject(PokemonService);
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
@@ -24,9 +26,7 @@ export class PokemonDetailsComponent implements OnInit {
       pokemonName = this.PkmName;
     }
     if (pokemonName) {
-      this.myPokemon = this.pokemons.find(
-        (x) => x.name.toLowerCase() == pokemonName.toLowerCase()
-      );
+      this.myPokemon = this.#pokemonService.getPokemonByName(pokemonName);
     }
   }
 

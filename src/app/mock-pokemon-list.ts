@@ -1,6 +1,8 @@
 import { Pokemon } from "./pokemon";
 import { PokemonType } from "./pokemons interfaces/pokemonType";
 
+export type PokemonList = Pokemon[];
+
 const fireType:PokemonType = { name: "Feu", cssColor: "red lighten-1" };
 const waterType:PokemonType = { name: "Eau", cssColor: "blue lighten-1" };
 const plantType:PokemonType = { name: "Plante", cssColor: "green lighten-1" };
@@ -14,12 +16,13 @@ const psyType:PokemonType = { name: "Psy", cssColor: "deep-purple darken-2" };
 const combatType:PokemonType = { name: "Combat", cssColor: "deep-orange" };
 
 
-export const POKEMONS: Pokemon[] = [
+export const POKEMONS: PokemonList = [
   {
     id: 1,
     name: "Bulbizarre",
     hp: 25,
     cp: 5,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
     types: [plantType, PoisonType],
@@ -30,6 +33,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Salamèche",
     hp: 28,
     cp: 6,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
     types: [fireType],
@@ -40,6 +44,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Carapuce",
     hp: 21,
     cp: 4,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
     types: [waterType],
@@ -50,6 +55,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Aspicot",
     hp: 16,
     cp: 2,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/013.png",
     types: [insectType,PoisonType],
@@ -60,6 +66,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Roucool",
     hp: 30,
     cp: 7,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
     types: [normalType,FlyType],
@@ -70,6 +77,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Rattata",
     hp: 18,
     cp: 6,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/019.png",
     types: [normalType],
@@ -80,6 +88,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Piafabec",
     hp: 14,
     cp: 5,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/021.png",
     types: [normalType,FlyType],
@@ -90,6 +99,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Abo",
     hp: 16,
     cp: 4,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/023.png",
     types: [PoisonType],
@@ -100,6 +110,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Pikachu",
     hp: 21,
     cp: 7,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
     types: [electrikType],
@@ -110,6 +121,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Sabelette",
     hp: 19,
     cp: 3,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
     types: [normalType],
@@ -120,6 +132,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Mélofée",
     hp: 25,
     cp: 5,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/035.png",
     types: [FeeType],
@@ -130,6 +143,7 @@ export const POKEMONS: Pokemon[] = [
     name: "Groupix",
     hp: 17,
     cp: 8,
+    damage:6,
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
     types: [fireType],
