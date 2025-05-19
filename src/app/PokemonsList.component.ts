@@ -1,6 +1,6 @@
-import { Component, computed, inject, Input, OnInit, signal } from "@angular/core";
+import { Component, computed, inject, Input, OnInit, Signal, signal } from "@angular/core";
 import { Pokemon } from "./pokemon";
-import { POKEMONS } from "./mock-pokemon-list";
+import { PokemonList, POKEMONS } from "./mock-pokemon-list";
 import { NgOptimizedImage } from "@angular/common";
 import { Router } from "@angular/router";
 import { PokemonService } from "./pokemon.service";
@@ -13,12 +13,8 @@ import { PokemonService } from "./pokemon.service";
 })
 export class PokemonsListComponent implements OnInit {
   readonly #pokemonService = inject(PokemonService);
-
-  searchTerm = signal("");
-
-  pokemons = computed(() => this.#pokemonService.searchPokemonsByName(this.searchTerm()));
-  firstPokemon = signal(this.pokemons()[0]);
-  selectedPokemon: Pokemon;
+@Input() pokemonsResult: PokemonList;
+  @Input("selectedPokemon") selectedPokemon = signal<Pokemon | undefined>(undefined);
   @Input("pkmName") poke: string;
 
   constructor(private router: Router) {}
@@ -33,14 +29,5 @@ export class PokemonsListComponent implements OnInit {
 
   ngOnInit(): void {
  
-  }
-
-  GetPokemon(searchedPokemon: string) {
-    const pokemon = this.#pokemonService.getPokemonByName(searchedPokemon);
-    if (pokemon != undefined) {
-      this.selectedPokemon = pokemon;
-    } else {
-      alert(`Ce pokemon n'existe pas`);
-    }
   }
 }

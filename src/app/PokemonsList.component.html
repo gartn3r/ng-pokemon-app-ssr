@@ -1,11 +1,9 @@
-<input #userInput [value]="searchTerm()" (input)="searchTerm.set(userInput.value)" type="text" placeholder="Rechercher un pokemon ..."/>
-<button class="waves-effect waves-light btn my-1" (click)="GetPokemon(userInput.value)">Rechercher</button>
-<p *ngIf="selectPokemon == undefined">Aucun pokemon selectionné</p>
 
-<div class="my-1" *ngIf="selectedPokemon"> Pokemon trouvé : {{selectedPokemon.name}}</div>
+
+
 
 <div class="row my-1">
-    <div *ngFor="let pokemon of pokemons()" class="col s4" [attr.id]="pokemon.id">
+    <div *ngFor="let pokemon of pokemonsResult" class="col s4" [attr.id]="pokemon.id">
         <div routerLink="/pokemons/{{pokemon.name}}" pkmCard="#279AF1" class="card darken-1 card-pkm" [class.selected]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
             <div class="card-content" [class.white-text]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
                 <div class="row" style="margin-bottom: 0;">

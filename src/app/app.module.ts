@@ -11,17 +11,19 @@ import { TestRouteComponent } from './test-route/test-route.component';
 import { PokemonDetailsComponent } from './PokemonDetails/PokemonDetails.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
+import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [			
     AppComponent,
     PokemonsListComponent,
     BorderCardDirective,
     PokemonTypeColorPipe,
     TestRouteComponent,
       PokemonDetailsComponent,
-      PageNotFoundComponent
+      PageNotFoundComponent,
+      SearchPokemonComponent
    ],
   imports: [
     BrowserModule,

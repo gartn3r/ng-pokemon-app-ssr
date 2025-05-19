@@ -25,4 +25,14 @@ export class PokemonService {
 
     return POKEMONS.filter((x) => x.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }
+
+  getPokemonsByType(type: string){
+    if (!type) {
+      return POKEMONS;
+    }
+
+    console.log(POKEMONS.map(x=>x.types));
+
+    return POKEMONS.filter((x)=>x.types.map(y=>y.name.toLowerCase()).includes(type.toLowerCase()));
+  }
 }
