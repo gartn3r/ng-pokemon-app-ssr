@@ -12,10 +12,11 @@ import { PokemonDetailsComponent } from './PokemonDetails/PokemonDetails.compone
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
+import { PokemonEditComponent } from './pokemon-edit/pokemon-edit.component';
 
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     PokemonsListComponent,
     BorderCardDirective,
@@ -23,7 +24,8 @@ import { SearchPokemonComponent } from './search-pokemon/search-pokemon.componen
     TestRouteComponent,
       PokemonDetailsComponent,
       PageNotFoundComponent,
-      SearchPokemonComponent
+      SearchPokemonComponent,
+      PokemonEditComponent
    ],
   imports: [
     BrowserModule,
