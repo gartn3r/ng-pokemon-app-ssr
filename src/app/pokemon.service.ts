@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { PokemonList, POKEMONS } from "./mock-pokemon-list";
+import { PokemonList, POKEMONS, pokemonTypes } from "./mock-pokemon-list";
 import { Pokemon } from "./pokemon";
 
 @Injectable({
@@ -39,5 +39,9 @@ export class PokemonService {
     console.log(POKEMONS.map(x=>x.types));
 
     return POKEMONS.filter((x)=>x.types.map(y=>y.name.toLowerCase()).includes(type.toLowerCase()));
+  }
+
+  getPokemonTypeList() {
+    return pokemonTypes.map((x) => x);
   }
 }

@@ -1,6 +1,23 @@
-<input #userInput [value]="searchTerm()" (input)="searchTerm.set(userInput.value)" type="text" placeholder="Rechercher un pokemon ..."/>
-<input #typesearch type="text" placeholder="entrez un type de pokemon" [value]="typeSearchTerm()" (input)="typeSearchTerm.set(typesearch.value)"/>
-<button class="waves-effect waves-light btn my-1" (click)="GetPokemon(userInput.value)">Rechercher</button>
+  <div class="input-field">
+    <i class="material-icons prefix">search</i>
+    <input
+      #userInput
+      [value]="searchTerm()"
+      (input)="searchTerm.set(userInput.value)"
+      type="text"
+      placeholder="Rechercher un pokemon ..."
+    />
+  </div>
+
+  <div class="input-field">
+    <i class="material-icons prefix">search</i>
+    <input
+      #typesearch
+      type="text"
+      placeholder="entrez un type de pokemon"
+      [value]="typeSearchTerm()"
+      (input)="typeSearchTerm.set(typesearch.value)"
+    />
+  </div>
 
 <pokemonsList [pokemonsResult]="pokemons()"></pokemonsList>
-

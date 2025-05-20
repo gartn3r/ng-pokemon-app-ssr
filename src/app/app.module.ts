@@ -13,6 +13,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormsModule } from '@angular/forms';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 import { PokemonEditComponent } from './pokemon-edit/pokemon-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { PokemonEditComponent } from './pokemon-edit/pokemon-edit.component';
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    JsonPipe
   ],
   providers: [
     provideClientHydration(withEventReplay())

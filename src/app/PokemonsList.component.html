@@ -1,17 +1,14 @@
-
-
-
-
 <div class="row my-1">
     <div *ngFor="let pokemon of pokemonsResult" class="col s4" [attr.id]="pokemon.id">
-        <div routerLink="/pokemons/{{pokemon.name}}" pkmCard="#279AF1" class="card darken-1 card-pkm" [class.selected]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
+        <div [routerLink]="['/pokemon/edit',pokemon.id]" pkmCard="#6fbcf6" class="card darken-1 card-pkm" [class.selected]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
             <div class="card-content" [class.white-text]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
                 <div class="row" style="margin-bottom: 0;">
+                    <div class="edit-overlay"><span>EDITER</span></div>
                     <div class="col s6">
                         <img [ngSrc]="pokemon.picture" width="120" height="120"/>
                     </div>
                     <div class="col s6">
-                        <p>
+                        <p style="font-size: large;font-weight: 500;">
                             {{pokemon.name}}
                         </p>
                         <p>
@@ -20,9 +17,12 @@
                         <p>
                             Point de vie : {{pokemon.hp}}
                         </p>
-                        <span style="margin-top: 10px;" *ngFor="let type of pokemon.types" class="bold {{ type | pokemonTypeColor}}">
-                          <b>{{ type.name }}</b>
-                        </span>
+                        <div class="row">
+                            <span style="margin-top: 10px;" *ngFor="let type of pokemon.types" class=" bold {{ type | pokemonTypeColor}}">
+                                <b>{{ type.name }}</b>
+                             </span>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

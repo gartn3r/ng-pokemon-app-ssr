@@ -8,12 +8,12 @@ export class BorderCardDirective {
   constructor(private element: ElementRef) {}
   @Input() pkmCard: string;
   @HostListener("mouseenter") onMouseEnter() {
-    this.setBorder(this.pkmCard);
+    this.setBackground(this.pkmCard)
     this.setMouseCursor();
   }
 
   @HostListener("mouseleave") onMouseLeave() {
-    this.resetBorder();
+    this.resetBackground();
   }
 
   @HostListener("click") onClick() {
@@ -23,6 +23,7 @@ export class BorderCardDirective {
   setMouseCursor() {
     this.element.nativeElement.style.cursor = "pointer";
   }
+
 
   setBorder(color: string) {
     this.element.nativeElement.style.border = `solid 2px ${color}`;
@@ -37,5 +38,13 @@ export class BorderCardDirective {
 
   setClasses() {
     this.element.nativeElement.classList.add("pkmCard");
+  }
+
+  setBackground(color: string){
+    this.element.nativeElement.style.backgroundColor = color;
+  }
+
+    resetBackground(){
+    this.element.nativeElement.style.backgroundColor = "";
   }
 }
