@@ -3,7 +3,7 @@
         <div [routerLink]="['/pokemon/edit',pokemon.id]" pkmCard="#6fbcf6" class="card darken-1 card-pkm" [class.selected]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
             <div class="card-content" [class.white-text]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
                 <div class="row" style="margin-bottom: 0;">
-                    <div class="edit-overlay"><span>EDITER</span></div>
+                    <div class="edit-overlay"><span style="font-family: 'MyCustomFont';font-size: 42px;">EDITER</span></div>
                     <div class="col s6">
                         <img [ngSrc]="pokemon.picture" width="120" height="120"/>
                     </div>
