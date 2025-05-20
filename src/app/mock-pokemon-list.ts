@@ -163,7 +163,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 14,
     name: "Tortank",
-    hp: 32,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/009.png",
@@ -173,7 +173,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 15,
     name: "Florizarre",
-    hp: 32,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/003.png",
@@ -233,7 +233,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 21,
     name: "Mewtwo",
-    hp: 40,
+    hp: 30,
     cp: 15,
     damage: 10,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/150.png",
@@ -243,7 +243,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 22,
     name: "Mew",
-    hp: 35,
+    hp: 30,
     cp: 12,
     damage: 9,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/151.png",
@@ -253,7 +253,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 23,
     name: "Dracolosse",
-    hp: 38,
+    hp: 30,
     cp: 13,
     damage: 9,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/149.png",
@@ -263,7 +263,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 24,
     name: "Ronflex",
-    hp: 45,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/143.png",
@@ -284,7 +284,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 26,
     name: "Arcanin",
-    hp: 34,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/059.png",
@@ -304,7 +304,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 28,
     name: "Onix",
-    hp: 35,
+    hp: 30,
     cp: 7,
     damage: 6,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/095.png",
@@ -314,7 +314,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 29,
     name: "Gyarados",
-    hp: 38,
+    hp: 30,
     cp: 13,
     damage: 9,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/130.png",
@@ -324,7 +324,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 30,
     name: "Lokhlass",
-    hp: 36,
+    hp: 30,
     cp: 12,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/131.png",
@@ -334,7 +334,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 31,
     name: "Roucarnage",
-    hp: 32,
+    hp: 30,
     cp: 9,
     damage: 7,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/018.png",
@@ -364,7 +364,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 34,
     name: "Nidoqueen",
-    hp: 34,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/031.png",
@@ -374,7 +374,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 35,
     name: "Nidoking",
-    hp: 36,
+    hp: 30,
     cp: 11,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/034.png",
@@ -394,7 +394,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 37,
     name: "Rhinoféros",
-    hp: 40,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/112.png",
@@ -444,7 +444,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 42,
     name: "Ptera",
-    hp: 32,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/142.png",
@@ -454,7 +454,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 43,
     name: "Leviator",
-    hp: 38,
+    hp: 30,
     cp: 13,
     damage: 9,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/130.png",
@@ -464,7 +464,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 44,
     name: "Artikodin",
-    hp: 40,
+    hp: 30,
     cp: 14,
     damage: 10,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/144.png",
@@ -474,7 +474,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 45,
     name: "Electhor",
-    hp: 40,
+    hp: 30,
     cp: 14,
     damage: 10,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/145.png",
@@ -484,7 +484,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 46,
     name: "Sulfura",
-    hp: 40,
+    hp: 30,
     cp: 14,
     damage: 10,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/146.png",
@@ -584,7 +584,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 56,
     name: "Machamp",
-    hp: 34,
+    hp: 30,
     cp: 12,
     damage: 9,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/068.png",
@@ -624,7 +624,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 60,
     name: "Tentacruel",
-    hp: 32,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/073.png",
@@ -654,7 +654,7 @@ export const POKEMONS: PokemonList = [
   {
     id: 63,
     name: "Grolem",
-    hp: 32,
+    hp: 30,
     cp: 10,
     damage: 8,
     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/076.png",
