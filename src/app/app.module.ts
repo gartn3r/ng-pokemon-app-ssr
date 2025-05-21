@@ -15,6 +15,11 @@ import { SearchPokemonComponent } from './search-pokemon/search-pokemon.componen
 import { PokemonEditComponent } from './pokemon-edit/pokemon-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
+import { HttpClient } from "@angular/common/http";
+import { provideHttpClient } from '@angular/common/http';
+
+
+
 
 
 @NgModule({
@@ -38,7 +43,8 @@ import { JsonPipe } from '@angular/common';
     JsonPipe
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

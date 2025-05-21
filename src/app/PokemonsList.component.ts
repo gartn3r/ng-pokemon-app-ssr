@@ -1,6 +1,6 @@
 import { Component, computed, inject, Input, OnInit, Signal, signal } from "@angular/core";
 import { Pokemon } from "./pokemon";
-import { PokemonList, POKEMONS } from "./mock-pokemon-list";
+import { PokemonList } from "./mock-pokemon-list";
 import { NgOptimizedImage } from "@angular/common";
 import { Router } from "@angular/router";
 import { PokemonService } from "./pokemon.service";

@@ -1,9 +1,10 @@
 import { Component, computed, inject, Input, OnInit, Signal, signal } from "@angular/core";
 import { Pokemon } from "./../pokemon";
-import { PokemonList, POKEMONS } from "./../mock-pokemon-list";
+import { PokemonList } from "./../mock-pokemon-list";
 import { NgOptimizedImage } from "@angular/common";
 import { Router } from "@angular/router";
 import { PokemonService } from "./../pokemon.service";
+import { toSignal } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'search-pokemon',
@@ -22,6 +23,8 @@ readonly #pokemonService = inject(PokemonService);
 
   searchTerm = signal("");
   typeSearchTerm = signal("");
+
+  allPokemons = toSignal(this.#pokemonService.getPokemonList(),{initialValue : []});
 
   pokemons = computed(() => 
   {
@@ -44,6 +47,10 @@ readonly #pokemonService = inject(PokemonService);
     } else {
       alert(`Ce pokemon n'existe pas`);
     }
+  }
+
+  ngInit(){
+console.log(this.allPokemons());
   }
 
 }
