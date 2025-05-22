@@ -3,6 +3,7 @@ import { PokemonList, pokemonTypes } from "./mock-pokemon-list";
 import { Pokemon } from "./pokemon";
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
+import { FormGroup } from "@angular/forms";
 
 @Injectable({
   providedIn: "root",
@@ -16,10 +17,10 @@ export class PokemonService {
 
   getPokemonList(): Observable<PokemonList> {
     const y = this.#httpClient.get<PokemonList>(this.#POKEMON_API_URL).pipe(
-      map(data => 
+      map(data =>
         data.map(pokemonData => Pokemon.fromJson(pokemonData)))
-      );
-      console.log(y);
+    );
+    console.log(y);
     return y;
   }
 
@@ -33,7 +34,7 @@ export class PokemonService {
   }
 
   getPokemonByName(name: string): Pokemon {
-    this.getPokemonList().subscribe( data => data.find((x) => x.name.toLowerCase() == name.toLowerCase()) );
+    this.getPokemonList().subscribe(data => data.find((x) => x.name.toLowerCase() == name.toLowerCase()));
     return this.allPokemons[0];
   }
 
@@ -41,20 +42,23 @@ export class PokemonService {
     if (!searchTerm) {
       return this.getPokemonList();
     }
-    this.getPokemonList().subscribe( data => this.allPokemons = data.filter((x) => x.name.toLowerCase().includes(searchTerm.toLowerCase())));
+    this.getPokemonList().subscribe(data => this.allPokemons = data.filter((x) => x.name.toLowerCase().includes(searchTerm.toLowerCase())));
     return this.allPokemons;
   }
 
-  getPokemonsByType(type: string) {
-    if (!type) {
-      return this.getPokemonList();
-    }
 
-    this.getPokemonList().subscribe( data => this.allPokemons = data.filter(x=> x.types.map(y => y.name.toLowerCase()).includes(type.toLowerCase())));
-    return this.allPokemons;
-  }
 
   getPokemonTypeList() {
     return pokemonTypes.map((x) => x);
+  }
+
+  updatePokemon(pokemonForm: Pokemon) {
+    const y = this.#httpClient.put<Pokemon>(this.#POKEMON_API_URL + "/" + pokemonForm.id, pokemonForm);
+    return y;
+  }
+
+  deletePokemon(pokemon: Pokemon) {
+    const y = this.#httpClient.delete<Pokemon>(this.#POKEMON_API_URL + "/" + pokemon.id);
+    return y;
   }
 }

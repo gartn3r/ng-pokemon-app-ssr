@@ -10,7 +10,7 @@ import { toSignal } from "@angular/core/rxjs-interop";
   selector: 'search-pokemon',
   templateUrl: './search-pokemon.component.html',
   styleUrls: ['./search-pokemon.component.css'],
-  standalone:false
+  standalone: false
 })
 export class SearchPokemonComponent implements OnInit {
 
@@ -19,28 +19,45 @@ export class SearchPokemonComponent implements OnInit {
   ngOnInit() {
   }
 
-readonly #pokemonService = inject(PokemonService);
+  readonly #pokemonService = inject(PokemonService);
 
   searchTerm = signal("");
   typeSearchTerm = signal("");
 
-  allPokemons = toSignal(this.#pokemonService.getPokemonList(),{initialValue : []});
+  allPokemons = toSignal(this.#pokemonService.getPokemonList(), { initialValue: [] });
 
-  pokemons = computed(() => 
-  {
-    if( this.searchTerm() !="")
-      {
-      return this.#pokemonService.searchPokemonsByName(this.searchTerm())
+  getPokemonsByType(type: string) {
+    if (!type) {
+      return this.allPokemons();
     }
-    else( this.typeSearchTerm() != "" )
+
+    return this.allPokemons().filter(x=> x.types.map(y => y.name.toLowerCase()).includes(type.toLowerCase()));
+  }
+
+  pokemons = computed(() => {
+    console.log("refresh pokemons");
+    if (this.searchTerm() != "") {
+      console.log("recherche avec searchTerm ");
+console.log(this.allPokemons().filter((x) => x.name.toLowerCase().includes(this.searchTerm().toLowerCase())))
+      return this.allPokemons().filter((x) => x.name.toLowerCase().includes(this.searchTerm().toLowerCase()))
+    }
+    else (this.typeSearchTerm() != "")
     {
-      return this.#pokemonService.getPokemonsByType(this.typeSearchTerm())
+      console.log("recherche avec typeSearchTerm ");
+
+      return this.getPokemonsByType(this.typeSearchTerm())
     }
   });
 
-    selectedPokemon: Pokemon;
+  readonly loading = computed(() => { this.pokemons.length == 0 });
 
-    GetPokemon(searchedPokemon: string) {
+  selectedPokemon: Pokemon;
+
+  searchPokemonByName(){
+    
+  }
+
+  GetPokemon(searchedPokemon: string) {
     const pokemon = this.#pokemonService.getPokemonByName(searchedPokemon);
     if (pokemon != undefined) {
       this.selectedPokemon = pokemon;
@@ -49,8 +66,8 @@ readonly #pokemonService = inject(PokemonService);
     }
   }
 
-  ngInit(){
-console.log(this.allPokemons());
+  ngInit() {
+    console.log("loading : " + this.loading());
   }
 
 }

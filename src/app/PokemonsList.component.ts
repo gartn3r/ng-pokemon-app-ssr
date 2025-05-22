@@ -13,7 +13,7 @@ import { PokemonService } from "./pokemon.service";
 })
 export class PokemonsListComponent implements OnInit {
   readonly #pokemonService = inject(PokemonService);
-@Input() pokemonsResult: PokemonList;
+  @Input() pokemonsResult: PokemonList;
   @Input("selectedPokemon") selectedPokemon = signal<Pokemon | undefined>(undefined);
   @Input("pkmName") poke: string;
 

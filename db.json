@@ -168,7 +168,7 @@
             "life": 20,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
-            "types": ["Sol"],
+            "types": ["Normal"],
             "created": "2024-08-16T00:00:00Z"
         },
         {
