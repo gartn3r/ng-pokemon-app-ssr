@@ -16,7 +16,7 @@ export class Pokemon {
     return new Pokemon(
       json.id,
       json.name,
-      json.life,
+      json.hp,
       json.damage,
       json.picture,
      
