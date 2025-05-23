@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Bulbizarre",
-            "life": 25,
+            "hp": 25,
             "damage": 5,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
             "types": ["Plante", "Poison"],
@@ -12,7 +12,7 @@
         {
             "id": 2,
             "name": "Salamèche",
-            "life": 28,
+            "hp": 28,
             "damage": 6,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
             "types": ["Feu"],
@@ -21,7 +21,7 @@
         {
             "id": 3,
             "name": "Carapuce",
-            "life": 21,
+            "hp": 21,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
             "types": ["Eau"],
@@ -30,7 +30,7 @@
         {
             "id": 4,
             "name": "Aspicot",
-            "life": 16,
+            "hp": 16,
             "damage": 2,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/013.png",
             "types": ["Insecte", "Poison"],
@@ -39,7 +39,7 @@
         {
             "id": 5,
             "name": "Roucool",
-            "life": 30,
+            "hp": 30,
             "damage": 7,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
             "types": ["Normal", "Vol"],
@@ -48,7 +48,7 @@
         {
             "id": 6,
             "name": "Rattata",
-            "life": 18,
+            "hp": 18,
             "damage": 6,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/019.png",
             "types": ["Normal"],
@@ -57,7 +57,7 @@
         {
             "id": 7,
             "name": "Piafabec",
-            "life": 14,
+            "hp": 14,
             "damage": 5,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/021.png",
             "types": ["Normal", "Vol"],
@@ -66,7 +66,7 @@
         {
             "id": 8,
             "name": "Abo",
-            "life": 16,
+            "hp": 16,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/023.png",
             "types": ["Poison"],
@@ -75,7 +75,7 @@
         {
             "id": 9,
             "name": "Pikachu",
-            "life": 21,
+            "hp": 21,
             "damage": 7,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
             "types": ["Electrik"],
@@ -84,7 +84,7 @@
         {
             "id": 10,
             "name": "Sabelette",
-            "life": 19,
+            "hp": 19,
             "damage": 3,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
             "types": ["Normal"],
@@ -93,7 +93,7 @@
         {
             "id": 11,
             "name": "Mélofée",
-            "life": 25,
+            "hp": 25,
             "damage": 5,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/035.png",
             "types": ["Fée"],
@@ -102,7 +102,7 @@
         {
             "id": 12,
             "name": "Groupix",
-            "life": 17,
+            "hp": 17,
             "damage": 8,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
             "types": ["Feu"],
@@ -111,7 +111,7 @@
         {
             "id": 13,
             "name": "Florizarre",
-            "life": 30,
+            "hp": 30,
             "damage": 9,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/003.png",
             "types": ["Plante", "Poison"],
@@ -120,7 +120,7 @@
         {
             "id": 14,
             "name": "Dracaufeu",
-            "life": 29,
+            "hp": 29,
             "damage": 10,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/006.png",
             "types": ["Feu", "Vol"],
@@ -129,7 +129,7 @@
         {
             "id": 15,
             "name": "Tortank",
-            "life": 30,
+            "hp": 30,
             "damage": 9,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/009.png",
             "types": ["Eau"],
@@ -138,7 +138,7 @@
         {
             "id": 16,
             "name": "Papilusion",
-            "life": 22,
+            "hp": 22,
             "damage": 7,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/012.png",
             "types": ["Insecte", "Vol"],
@@ -147,7 +147,7 @@
         {
             "id": 17,
             "name": "Roucarnage",
-            "life": 28,
+            "hp": 28,
             "damage": 8,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/018.png",
             "types": ["Normal", "Vol"],
@@ -156,7 +156,7 @@
         {
             "id": 18,
             "name": "Raichu",
-            "life": 24,
+            "hp": 24,
             "damage": 9,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/026.png",
             "types": ["Electrik"],
@@ -165,7 +165,7 @@
         {
             "id": 19,
             "name": "Sabelette",
-            "life": 20,
+            "hp": 20,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
             "types": ["Normal"],
@@ -174,7 +174,7 @@
         {
             "id": 20,
             "name": "Nidoran♀",
-            "life": 18,
+            "hp": 18,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/029.png",
             "types": ["Poison"],
@@ -183,7 +183,7 @@
         {
             "id": 21,
             "name": "Nidoran♂",
-            "life": 18,
+            "hp": 18,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/032.png",
             "types": ["Poison"],
@@ -192,7 +192,7 @@
         {
             "id": 22,
             "name": "Mélofée",
-            "life": 23,
+            "hp": 23,
             "damage": 5,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/035.png",
             "types": ["Fée"],
@@ -201,7 +201,7 @@
         {
             "id": 23,
             "name": "Goupix",
-            "life": 17,
+            "hp": 17,
             "damage": 7,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
             "types": ["Feu"],
@@ -210,7 +210,7 @@
         {
             "id": 24,
             "name": "Arcanin",
-            "life": 29,
+            "hp": 29,
             "damage": 10,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/059.png",
             "types": ["Feu"],
@@ -219,7 +219,7 @@
         {
             "id": 25,
             "name": "Machopeur",
-            "life": 26,
+            "hp": 26,
             "damage": 8,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/067.png",
             "types": ["Combat"],
@@ -228,7 +228,7 @@
         {
             "id": 26,
             "name": "Rondoudou",
-            "life": 27,
+            "hp": 27,
             "damage": 5,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/039.png",
             "types": ["Normal", "Fée"],
@@ -237,7 +237,7 @@
         {
             "id": 27,
             "name": "Nosferapti",
-            "life": 16,
+            "hp": 16,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/041.png",
             "types": ["Poison", "Vol"],
@@ -246,7 +246,7 @@
         {
             "id": 28,
             "name": "Mystherbe",
-            "life": 18,
+            "hp": 18,
             "damage": 4,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/043.png",
             "types": ["Plante", "Poison"],
@@ -255,7 +255,7 @@
         {
             "id": 29,
             "name": "Paras",
-            "life": 15,
+            "hp": 15,
             "damage": 3,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/046.png",
             "types": ["Insecte", "Plante"],
@@ -264,7 +264,7 @@
         {
             "id": 30,
             "name": "Miaouss",
-            "life": 17,
+            "hp": 17,
             "damage": 5,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/052.png",
             "types": ["Normal"],
@@ -273,7 +273,7 @@
         {
             "id": 31,
             "name": "Psykokwak",
-            "life": 20,
+            "hp": 20,
             "damage": 6,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/054.png",
             "types": ["Eau"],
@@ -282,7 +282,7 @@
         {
             "id": 32,
             "name": "Caninos",
-            "life": 18,
+            "hp": 18,
             "damage": 7,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/058.png",
             "types": ["Feu"],
@@ -291,7 +291,7 @@
         {
             "id": 33,
             "name": "Ptitard",
-            "life": 15,
+            "hp": 15,
             "damage": 3,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/060.png",
             "types": ["Eau"],
@@ -300,7 +300,7 @@
         {
             "id": 34,
             "name": "Kadabra",
-            "life": 22,
+            "hp": 22,
             "damage": 9,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/064.png",
             "types": ["Psy"],
@@ -309,7 +309,7 @@
         {
             "id": 35,
             "name": "Machamp",
-            "life": 30,
+            "hp": 30,
             "damage": 10,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/068.png",
             "types": ["Combat"],
@@ -318,7 +318,7 @@
         {
             "id": 36,
             "name": "Rafflesia",
-            "life": 28,
+            "hp": 28,
             "damage": 8,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/045.png",
             "types": ["Plante", "Poison"],
@@ -327,7 +327,7 @@
         {
             "id": 37,
             "name": "Tentacool",
-            "life": 17,
+            "hp": 17,
             "damage": 5,
             "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/072.png",
             "types": ["Eau", "Poison"],

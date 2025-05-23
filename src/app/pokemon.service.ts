@@ -57,8 +57,8 @@ export class PokemonService {
     return y;
   }
 
-  deletePokemon(pokemon: Pokemon) {
-    const y = this.#httpClient.delete<Pokemon>(this.#POKEMON_API_URL + "/" + pokemon.id);
+  deletePokemon(pokemonId: number) {
+    const y = this.#httpClient.delete<Pokemon>(this.#POKEMON_API_URL + "/" + pokemonId);
     return y;
   }
 }
