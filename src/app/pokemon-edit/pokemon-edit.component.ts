@@ -56,6 +56,13 @@ export class PokemonEditComponent implements OnInit {
     )
   );
 
+   deletePokemon(){
+   this.pokemonService.deletePokemon(this.pokemonId()).subscribe(()=>{console.log("pokemon bien delete"); this.router.navigate(['/pokemons'])});
+   
+   }
+
+   
+
   readonly error = computed(() => this.pokemonResponse()?.error);
 
 
@@ -141,6 +148,8 @@ export class PokemonEditComponent implements OnInit {
     const newLife = this.pokemonLife.value - 1;
     this.pokemonLife.setValue(newLife);
   }
+
+
 
   onSubmit() {
     const currentPokemon = this.pokemon();
