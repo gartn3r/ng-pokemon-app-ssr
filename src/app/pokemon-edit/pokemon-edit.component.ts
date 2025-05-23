@@ -9,6 +9,7 @@ import { ErrorMessages } from '../errors/errors-messages'
 import { toSignal } from '@angular/core/rxjs-interop';
 import { error, log } from 'console';
 import { catchError, map, of } from 'rxjs';
+import { AuthService } from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-pokemon-edit',
@@ -41,6 +42,7 @@ export class PokemonEditComponent implements OnInit {
   readonly errorMessages = ErrorMessages;
   readonly route = inject(ActivatedRoute);
   readonly router = inject(Router);
+  readonly authService = inject(AuthService);
 
   readonly pokemonService = inject(PokemonService);
   readonly pokemonId = signal(
@@ -58,7 +60,6 @@ export class PokemonEditComponent implements OnInit {
 
    deletePokemon(){
    this.pokemonService.deletePokemon(this.pokemonId()).subscribe(()=>{console.log("pokemon bien delete"); this.router.navigate(['/pokemons'])});
-   
    }
 
    

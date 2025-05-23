@@ -5,6 +5,7 @@ import { NgOptimizedImage } from "@angular/common";
 import { Router } from "@angular/router";
 import { PokemonService } from "./../pokemon.service";
 import { toSignal } from "@angular/core/rxjs-interop";
+import { AuthService } from "../core/auth/auth.service";
 
 @Component({
   selector: 'search-pokemon',
@@ -20,6 +21,7 @@ export class SearchPokemonComponent implements OnInit {
   }
 
   readonly #pokemonService = inject(PokemonService);
+  readonly authService = inject(AuthService);
 
   searchTerm = signal("");
   typeSearchTerm = signal("");

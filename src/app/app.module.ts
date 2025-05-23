@@ -17,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { HttpClient } from "@angular/common/http";
 import { provideHttpClient } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { HeaderPokemonComponent } from './header-pokemon/header-pokemon.component';
 
 
 
@@ -32,7 +34,9 @@ import { provideHttpClient } from '@angular/common/http';
       PokemonDetailsComponent,
       PageNotFoundComponent,
       SearchPokemonComponent,
-      PokemonEditComponent
+      PokemonEditComponent,
+      LoginComponent,
+      HeaderPokemonComponent
    ],
   imports: [
     BrowserModule,

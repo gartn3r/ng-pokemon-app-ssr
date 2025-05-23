@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)" class="col s12 z-depth-2" style="padding: 2rem; background: #fff; border-radius: 8px;">
+            <h5 class="center-align">Login</h5>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="text" class="validate" formControlName="username" id="username"  [value]="getUsernameForm" placeholder="Entrez votre email">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="text" class="validate"  formControlName="password" id="password"  [value]="getPasswordForm" placeholder="Entrez votre mot de passe">
+                    
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="submit">Login</button>
+            </div>
+            <div   [attr.data-error]="error()">
+                <div class=" lighten-2 red-text"> {{error()}}</div>
+            </div>
+
+            
+        </form>
+    </div>
+</div>
