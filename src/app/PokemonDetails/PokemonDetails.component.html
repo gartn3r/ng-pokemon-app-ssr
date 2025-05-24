@@ -22,7 +22,7 @@
               style="margin-top: 10px"
               *ngFor="let type of myPokemon.types"
               class="bold {{ type | pokemonTypeColor }}">
-              <b>{{ type.name }}</b>
+              <b>{{ type }}</b>
             </span>
             <button
               [routerLink]="['/pokemon/edit', myPokemon.id]"

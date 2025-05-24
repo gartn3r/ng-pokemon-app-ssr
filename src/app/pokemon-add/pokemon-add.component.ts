@@ -4,7 +4,7 @@ import { POKEMON_RULES, pokemonTypes } from '../mock-pokemon-list';
 import { PokemonType } from '../pokemons interfaces/pokemonType';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../core/auth/auth.service';
-import { PokemonService } from '../pokemon.service';
+import { IPokemonService } from '../pokemon.service';
 import { ErrorMessages } from '../errors/errors-messages';
 import { Pokemon } from '../pokemon';
 
@@ -22,7 +22,7 @@ export class PokemonAddComponent implements OnInit {
   readonly router = inject(Router);
   readonly authService = inject(AuthService);
 
-  readonly pokemonService = inject(PokemonService);
+  readonly pokemonService = inject(IPokemonService);
 
   readonly form = new FormGroup({
     name: new FormControl('', [

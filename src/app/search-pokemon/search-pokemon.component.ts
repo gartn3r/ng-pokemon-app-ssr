@@ -1,6 +1,6 @@
 import { Component, computed, inject, OnInit, signal, viewChild } from '@angular/core';
 import { Pokemon } from './../pokemon';
-import { PokemonService } from './../pokemon.service';
+import { IPokemonService } from './../pokemon.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { AuthService } from '../core/auth/auth.service';
 import { PokemonsListComponent } from '../PokemonsList.component';
@@ -16,7 +16,7 @@ export class SearchPokemonComponent implements OnInit {
 
   ngOnInit() {}
 
-  readonly #pokemonService = inject(PokemonService);
+  readonly #pokemonService = inject(IPokemonService);
   readonly authService = inject(AuthService);
   pokemonListChild = viewChild(PokemonsListComponent);
 
@@ -34,7 +34,7 @@ export class SearchPokemonComponent implements OnInit {
     }
 
     return this.allPokemons().filter(x =>
-      x.types.map(y => y.name.toLowerCase()).includes(type.toLowerCase())
+      x.types.map(y => y.toLowerCase()).includes(type.toLowerCase())
     );
   }
 

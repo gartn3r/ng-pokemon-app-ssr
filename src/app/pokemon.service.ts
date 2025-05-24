@@ -1,77 +1,22 @@
-import { inject, Inject, Injectable } from "@angular/core";
-import { PokemonList, pokemonTypes } from "./mock-pokemon-list";
-import { Pokemon } from "./pokemon";
-import { HttpClient } from "@angular/common/http";
-import { map, Observable } from "rxjs";
-import { FormGroup } from "@angular/forms";
+import { PokemonList, pokemonTypes } from './mock-pokemon-list';
+import { Pokemon } from './pokemon';
+import { map, Observable } from 'rxjs';
+import { PokemonType } from './pokemons interfaces/pokemonType';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class PokemonService {
-  readonly #POKEMON_API_URL = 'http://localhost:3000/pokemons';
-  readonly #httpClient = inject(HttpClient);
-  allPokemons: PokemonList;
+export abstract class IPokemonService {
+  abstract getPokemonList(): Observable<PokemonList>;
 
-  getPokemonList(): Observable<PokemonList> {
-    const y = this.#httpClient
-      .get<PokemonList>(this.#POKEMON_API_URL)
-      .pipe(
-        map(data =>
-          data
-            .map(pokemonData => Pokemon.fromJson(pokemonData))
-            .sort((a, b) => b.created.getTime() - a.created.getTime())
-        )
-      );
-    return y;
-  }
+  abstract getPokemonById(id: number): Observable<Pokemon>;
 
-  getPokemonById(id: number) {
-    const url = `${this.#POKEMON_API_URL}/${id}`;
-    const y = this.#httpClient
-      .get<Pokemon>(url)
-      .pipe(map(pokemonData => Pokemon.fromJson(pokemonData)));
-    return y;
-  }
+  abstract getPokemonByName(name: string): Pokemon;
 
-  getPokemonByName(name: string): Pokemon {
-    this.getPokemonList().subscribe(data =>
-      data.find(x => x.name.toLowerCase() == name.toLowerCase())
-    );
-    return this.allPokemons[0];
-  }
+  abstract searchPokemonsByName(searchTerm: string): PokemonList | Observable<PokemonList>;
 
-  searchPokemonsByName(searchTerm: string) {
-    if (!searchTerm) {
-      return this.getPokemonList();
-    }
-    this.getPokemonList().subscribe(
-      data =>
-        (this.allPokemons = data.filter(x =>
-          x.name.toLowerCase().includes(searchTerm.toLowerCase())
-        ))
-    );
-    return this.allPokemons;
-  }
+  abstract getPokemonTypeList(): PokemonType[];
 
-  getPokemonTypeList() {
-    return pokemonTypes.map(x => x);
-  }
+  abstract updatePokemon(pokemonForm: Pokemon): Observable<Pokemon>;
 
-  updatePokemon(pokemonForm: Pokemon) {
-    const y = this.#httpClient.put<Pokemon>(
-      this.#POKEMON_API_URL + '/' + pokemonForm.id,
-      pokemonForm
-    );
-    return y;
-  }
+  abstract deletePokemon(pokemonId: number): Observable<void>;
 
-  deletePokemon(pokemonId: number) {
-    const y = this.#httpClient.delete<Pokemon>(this.#POKEMON_API_URL + '/' + pokemonId);
-    return y;
-  }
-
-  addPokemon(newPokemon: Omit<Pokemon, 'id'>): Observable<Pokemon> {
-    return this.#httpClient.post<Pokemon>(this.#POKEMON_API_URL, newPokemon);
-  }
+  abstract addPokemon(newPokemon: Omit<Pokemon, 'id'>): Observable<Pokemon>;
 }

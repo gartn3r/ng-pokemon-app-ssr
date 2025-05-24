@@ -46,8 +46,16 @@
   transition: transform 0.7s;
 }
 
+.card-pkm:hover {
+  transform: scale(1.02);
+}
+
+.card-pkm  {
+  transition: transform 0.4s;
+}
+
 .card-pkm:hover .picture {
-  transform: scale(1.3);
+  transform: scale(1.3) rotateZ(8deg);
 }
 
 .card-pkm .picture {
@@ -63,3 +71,4 @@
   opacity: 0;
   transition: opacity 0.4s;
 }
+

@@ -118,7 +118,7 @@
                       <td>
                         @for (selectedType of pokemonTypeList.controls; track $index) {
                         <div class="bold {{ selectedType.value | pokemonTypeColor }}">
-                          {{ selectedType.value.name }}
+                          {{ selectedType.value }}
                         </div>
                         } @if(pokemonTypeList.hasError('required')){
                         <span class="helper-text" [attr.data-error]="errorMessages.Required">{{
@@ -137,17 +137,17 @@
                               <input
                                 #checkbox
                                 [disabled]="
-                                  !isPokemonTypeSelected(type) &&
+                                  !isPokemonTypeSelected(type.name) &&
                                   pokemonTypeList.hasError('maxlength')
                                 "
-                                (change)="onPokemonTypeChange(type, checkbox.checked)"
-                                [checked]="isPokemonTypeSelected(type)"
+                                (change)="onPokemonTypeChange(type.name, checkbox.checked)"
+                                [checked]="isPokemonTypeSelected(type.name)"
                                 type="checkbox"
                                 [value]="type"
                                 [id]="type"
-                                class="filled-in {{ type | pokemonTypeColor }}" />
+                                class="filled-in {{ (type.name)| pokemonTypeColor }}" />
 
-                              <span>{{ type.name }}</span>
+                              <span>{{type.name}}</span>
                             </label>
                           </div>
                           }

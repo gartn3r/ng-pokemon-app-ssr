@@ -146,7 +146,7 @@
                               type="checkbox"
                               [value]="type"
                               [id]="type"
-                              class="filled-in {{ type | pokemonTypeColor }}" />
+                              class="filled-in {{ (type.name)| pokemonTypeColor }}" />
 
                             <span>{{ type.name }}</span>
                           </label>

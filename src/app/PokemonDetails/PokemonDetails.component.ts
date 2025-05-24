@@ -1,7 +1,7 @@
 import { Component, computed, inject, Input, OnInit, signal } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PokemonService } from '../pokemon.service';
+import { IPokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-PokemonDetails',
@@ -15,7 +15,7 @@ export class PokemonDetailsComponent implements OnInit {
   Hp = signal(9);
   fullHp = computed(() => this.Hp() * 1000);
 
-  readonly #pokemonService = inject(PokemonService);
+  readonly #pokemonService = inject(IPokemonService);
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 

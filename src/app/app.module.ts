@@ -21,39 +21,48 @@ import { LoginComponent } from './login/login.component';
 import { HeaderPokemonComponent } from './header-pokemon/header-pokemon.component';
 import { PokemonAddComponent } from './pokemon-add/pokemon-add.component';
 import { CardAddPokemonComponent } from './card-add-pokemon/card-add-pokemon.component';
+import { IPokemonService } from './pokemon.service';
+import { environment } from '../environments/environment';
+import { PokemonLocalStorageService } from './PokemonLocalStorageService';
+import { PokemonServerService } from './pokemonServer.service';
 
+export function pokemonServiceFactory(): IPokemonService {
+  return environment.production ? new PokemonLocalStorageService() : new PokemonServerService();
+}
 
-
-
+export function providePokemonService() {
+  return { provide: IPokemonService, useFactory: pokemonServiceFactory };
+}
 
 @NgModule({
-  declarations: [					
+  declarations: [
     AppComponent,
     PokemonsListComponent,
     BorderCardDirective,
     PokemonTypeColorPipe,
     TestRouteComponent,
-      PokemonDetailsComponent,
-      PageNotFoundComponent,
-      SearchPokemonComponent,
-      PokemonEditComponent,
-      LoginComponent,
-      HeaderPokemonComponent,
-      PokemonAddComponent,
-      CardAddPokemonComponent
-   ],
+    PokemonDetailsComponent,
+    PageNotFoundComponent,
+    SearchPokemonComponent,
+    PokemonEditComponent,
+    LoginComponent,
+    HeaderPokemonComponent,
+    PokemonAddComponent,
+    CardAddPokemonComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
     FormsModule,
     ReactiveFormsModule,
-    JsonPipe
+    JsonPipe,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
-    provideHttpClient()
+    provideHttpClient(),
+    providePokemonService(),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
