@@ -1,31 +1,43 @@
-<div class="row my-1">
+<ng-content />
+<div class="container-xl">
+  <div class="row my-1" style="display: flex; flex-direction: row; flex-wrap: wrap">
+    <app-card-add-pokemon class="col s12 m6 xl4" id="card-add" [routerLink]="['/pokemons/add']"></app-card-add-pokemon>
     <div *ngFor="let pokemon of pokemonsResult" class="col s12 m6 xl4" [attr.id]="pokemon.id">
-        <div [routerLink]="['/pokemons/edit',pokemon.id]" pkmCard="#6fbcf6" class="card darken-1 card-pkm" [class.selected]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
-            <div class="card-content" [class.white-text]="selectedPokemon != undefined && pokemon.name==selectedPokemon.name">
-                <div class="row" style="margin-bottom: 0;">
-                    <div class="edit-overlay"><span style="font-family: 'MyCustomFont';font-size: 42px;">EDITER</span></div>
-                    <div class="col s6">
-                        <img [ngSrc]="pokemon.picture" width="120" height="120"/>
-                    </div>
-                    <div class="col s6">
-                        <p style="font-size: large;font-weight: 500;">
-                            {{pokemon.name}}
-                        </p>
-                        <p>
-                            {{pokemon.created | date:"dd/MM/YYY"  }}
-                        </p>
-                        <p>
-                            Point de vie : {{pokemon.hp}}
-                        </p>
-                        <div class="row " style="display:flex;flex-wrap:  nowrap;">
-                            <span style="margin-top: 10px;" *ngFor="let type of pokemon.types" class=" bold {{ type | pokemonTypeColor}}">
-                                <b>{{ type.name }}</b>
-                             </span>
-                        </div>
-                        
-                    </div>
-                </div>
+      <div
+        [routerLink]="['/pokemons/edit', pokemon.id]"
+        pkmCard="#6fbcf6"
+        class="card darken-1 card-pkm"
+        [class.selected]="selectedPokemon != undefined && pokemon.name == selectedPokemon.name">
+        <div
+          class="card-content"
+          [class.white-text]="selectedPokemon != undefined && pokemon.name == selectedPokemon.name">
+          <div class="row" style="margin-bottom: 0">
+            <div class="edit-overlay">
+              <span style="font-family: 'MyCustomFont'; font-size: 42px" class="edit-text">EDITER</span>
             </div>
+            <div class="col s6">
+              <img [ngSrc]="pokemon.picture" width="120" height="120" class="picture" />
+            </div>
+            <div class="col s6">
+              <p style="font-size: large; font-weight: 500">
+                {{ pokemon.name }}
+              </p>
+              <p>
+                {{ pokemon.created | date : 'dd/MM/YYY' }}
+              </p>
+              <p>Point de vie : {{ pokemon.hp }}</p>
+              <div class="row" style="display: flex; flex-wrap: nowrap">
+                <span
+                  style="margin-top: 10px"
+                  *ngFor="let type of pokemon.types"
+                  class=" bold {{ type | pokemonTypeColor }}">
+                  <b>{{ type.name }}</b>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

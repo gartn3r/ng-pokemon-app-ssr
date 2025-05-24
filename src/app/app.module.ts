@@ -19,13 +19,15 @@ import { HttpClient } from "@angular/common/http";
 import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HeaderPokemonComponent } from './header-pokemon/header-pokemon.component';
+import { PokemonAddComponent } from './pokemon-add/pokemon-add.component';
+import { CardAddPokemonComponent } from './card-add-pokemon/card-add-pokemon.component';
 
 
 
 
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
     PokemonsListComponent,
     BorderCardDirective,
@@ -36,7 +38,9 @@ import { HeaderPokemonComponent } from './header-pokemon/header-pokemon.componen
       SearchPokemonComponent,
       PokemonEditComponent,
       LoginComponent,
-      HeaderPokemonComponent
+      HeaderPokemonComponent,
+      PokemonAddComponent,
+      CardAddPokemonComponent
    ],
   imports: [
     BrowserModule,

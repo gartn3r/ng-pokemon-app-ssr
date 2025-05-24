@@ -19,8 +19,15 @@
     (input)="typeSearchTerm.set(typesearch.value)"
   />
 </div>
+<span style="color: black;">Pokedex activé : {{resultCount()}}</span>
 
-<pokemonsList [pokemonsResult]="pokemons()"></pokemonsList>
+<pokemonsList [pokemonsResult]="pokemons()">
+  <div class="row">
+    <span #labelSearch style="color: blueviolet;">Pokemons ajoutés au pokédex :</span>
+  </div>
+ 
+</pokemonsList>
+
 <div *ngIf="loading()">
   <div class="progress">
     <div class="indeterminate"></div>

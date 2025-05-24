@@ -1,31 +1,38 @@
 <a routerLink="/pokemons">< retour</a>
-<h1>{{myPokemon?.name}}</h1>
+<h1>{{ myPokemon?.name }}</h1>
 <div class="row my-1 justify-content-center">
   <div class="col s4 offset-s4">
-      <div class="card darken-1" *ngIf="myPokemon != undefined">
-          <div class="card-content">
-              <div class="row" style="margin-bottom: 0;">
-                  <div class="col s6">
-                      <img [ngSrc]="myPokemon.picture" width="120" height="120"/>
-                  </div>
-                  <div class="col s6">
-                      <p>
-                          {{myPokemon.name}}
-                      </p>
-                      <p>
-                          {{myPokemon.created | date:"dd/MM/YYY" }}
-                      </p>
-                      <label for="hp">Point de vie : 🖍️</label>
-                      <input id="hp" type="number" [(ngModel)]="Hp" style="cursor: pointer;"/>
-                       <p>Full Hp : {{fullHp()}}</p>
-                    <span style="margin-top: 10px;" *ngFor="let type of myPokemon.types" class="bold {{ type | pokemonTypeColor}}">
-                      <b>{{ type.name }}</b>
-                    </span>
-                    <button [routerLink]="['/pokemon/edit',myPokemon.id]" class="btn btn-link text-decoration-none text-warning">EDITER</button>
-                  </div>
-              </div>
+    <div class="card darken-1" *ngIf="myPokemon != undefined">
+      <div class="card-content">
+        <div class="row" style="margin-bottom: 0">
+          <div class="col s6">
+            <img [ngSrc]="myPokemon.picture" width="120" height="120" />
           </div>
+          <div class="col s6">
+            <p>
+              {{ myPokemon.name }}
+            </p>
+            <p>
+              {{ myPokemon.created | date : 'dd/MM/YYY' }}
+            </p>
+            <label for="hp">Point de vie : 🖍️</label>
+            <input id="hp" type="number" [(ngModel)]="Hp" style="cursor: pointer" />
+            <p>Full Hp : {{ fullHp() }}</p>
+            <span
+              style="margin-top: 10px"
+              *ngFor="let type of myPokemon.types"
+              class="bold {{ type | pokemonTypeColor }}">
+              <b>{{ type.name }}</b>
+            </span>
+            <button
+              [routerLink]="['/pokemon/edit', myPokemon.id]"
+              class="btn btn-link text-decoration-none text-warning"
+              >EDITER</button
+            >
+          </div>
+        </div>
       </div>
-      <div *ngIf="myPokemon == undefined">Aucun pokemon correspondant !</div>
+    </div>
+    <div *ngIf="myPokemon == undefined">Aucun pokemon correspondant !</div>
   </div>
 </div>

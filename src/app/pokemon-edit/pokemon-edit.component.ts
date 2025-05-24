@@ -62,8 +62,6 @@ export class PokemonEditComponent implements OnInit {
    this.pokemonService.deletePokemon(this.pokemonId()).subscribe(()=>{console.log("pokemon bien delete"); this.router.navigate(['/pokemons'])});
    }
 
-   
-
   readonly error = computed(() => this.pokemonResponse()?.error);
 
 
@@ -166,7 +164,9 @@ export class PokemonEditComponent implements OnInit {
       }
       console.log('sa vie : '+this.pokemonLife.value);
       console.log('ce qui va etre push:',updatedPokemon);
-      this.pokemonService.updatePokemon(updatedPokemon).subscribe((data) => this.router.navigate(['/pokemon/edit', data.id]));
+      this.pokemonService
+        .updatePokemon(updatedPokemon)
+        .subscribe(data => this.router.navigate(['/pokemons']));
     }
    
     console.log(this.form.value);

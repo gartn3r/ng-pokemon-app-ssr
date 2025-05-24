@@ -1,14 +1,9 @@
 <div class="container">
-  <p>isAuthentified : {{authService.isAuthentified()}}</p>
   <ng-container *ngIf="pokemon() as pokemon">
     <div class="card">
       <div class="row">
         <div class="col s12 m4 center-align">
-          <img
-            [src]="pokemon.picture"
-            class="responsive-img"
-            [alt]="pokemon.name"
-          />
+          <img [src]="pokemon.picture" class="responsive-img" [alt]="pokemon.name" />
         </div>
         <div class="col s12 m8">
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -27,25 +22,21 @@
                             [value]="pokemon.name"
                             placeholder="Nom du Pokémon"
                             id="name"
-                            [class.invalid]="pokemonName.invalid"
-                          />
+                            [class.invalid]="pokemonName.invalid" />
                           @if(pokemonName.hasError('required')){
                           <span dat>{{ errorMessages.Required }}</span>
                           <span
                             class="helper-text"
-                            [attr.data-error]="errorMessages.Required"
-                          ></span>
+                            [attr.data-error]="errorMessages.Required"></span>
 
                           } @if(pokemonName.hasError('minlength')){
                           <span
                             class="helper-text"
-                            [attr.data-error]="errorMessages.MinLength"
-                          ></span>
+                            [attr.data-error]="errorMessages.MinLength"></span>
                           } @if(pokemonName.hasError('maxlength')){
                           <span
                             class="helper-text"
-                            [attr.data-error]="errorMessages.MaxLength"
-                          ></span>
+                            [attr.data-error]="errorMessages.MaxLength"></span>
                           }
                         </div>
                       </td>
@@ -57,11 +48,11 @@
                           <div class="row valign-wrapper">
                             <div class="col s2">
                               <button
+                                type="button"
                                 [class.disabled]="pokemonLife.hasError('min')"
                                 [disabled]="pokemonLife.hasError('min')"
                                 class="waves-effect waves-light btn-small deep-orange accent-4"
-                                (click)="decrementLife()"
-                              >
+                                (click)="decrementLife()">
                                 -
                               </button>
                             </div>
@@ -70,16 +61,15 @@
                                 formControlName="hp"
                                 type="number"
                                 class="center-align"
-                                [value]="pokemonLife"
-                              />
+                                [value]="pokemonLife" />
                             </div>
                             <div class="col s2">
                               <button
+                                type="button"
                                 [class.disabled]="pokemonLife.hasError('max')"
                                 [disabled]="pokemonLife.hasError('max')"
                                 class="waves-effect waves-light btn-small deep-orange accent-4"
-                                (click)="incrementLife()"
-                              >
+                                (click)="incrementLife()">
                                 +
                               </button>
                             </div>
@@ -94,11 +84,11 @@
                           <div class="row valign-wrapper">
                             <div class="col s2">
                               <button
+                                type="button"
                                 [class.disabled]="pokemonDamage.hasError('min')"
                                 [disabled]="pokemonDamage.hasError('min')"
                                 class="waves-effect waves-light btn-small deep-orange accent-4"
-                                (click)="decrementDamage()"
-                              >
+                                (click)="decrementDamage()">
                                 +
                               </button>
                             </div>
@@ -107,16 +97,15 @@
                                 formControlName="damage"
                                 type="number"
                                 class="center-align"
-                                [value]="pokemonDamage"
-                              />
+                                [value]="pokemonDamage" />
                             </div>
                             <div class="col s2">
                               <button
+                                type="button"
                                 [class.disabled]="pokemonDamage.hasError('max')"
                                 [disabled]="pokemonDamage.hasError('max')"
                                 class="waves-effect waves-light btn-small deep-orange accent-4"
-                                (click)="incrementDamage()"
-                              >
+                                (click)="incrementDamage()">
                                 +
                               </button>
                             </div>
@@ -127,21 +116,14 @@
                     <tr>
                       <th></th>
                       <td>
-                        @for (selectedType of pokemonTypeList.controls; track
-                        $index) {
-                        <div
-                          class="bold {{
-                            selectedType.value | pokemonTypeColor
-                          }}"
-                        >
+                        @for (selectedType of pokemonTypeList.controls; track $index) {
+                        <div class="bold {{ selectedType.value | pokemonTypeColor }}">
                           {{ selectedType.value.name }}
                         </div>
                         } @if(pokemonTypeList.hasError('required')){
-                        <span
-                          class="helper-text"
-                          [attr.data-error]="errorMessages.Required"
-                          >{{ errorMessages.Required }}</span
-                        >
+                        <span class="helper-text" [attr.data-error]="errorMessages.Required">{{
+                          errorMessages.Required
+                        }}</span>
                         }
                       </td>
                     </tr>
@@ -149,8 +131,7 @@
                       <th>Types</th>
                       <td>
                         <div class="row">
-                          @for(type of pokemonService.getPokemonTypeList();
-                          track type) {
+                          @for(type of pokemonService.getPokemonTypeList(); track type) {
                           <div class="col s12 m4">
                             <label>
                               <input
@@ -159,15 +140,12 @@
                                   !isPokemonTypeSelected(type) &&
                                   pokemonTypeList.hasError('maxlength')
                                 "
-                                (change)="
-                                  onPokemonTypeChange(type, checkbox.checked)
-                                "
+                                (change)="onPokemonTypeChange(type, checkbox.checked)"
                                 [checked]="isPokemonTypeSelected(type)"
                                 type="checkbox"
                                 [value]="type"
                                 [id]="type"
-                                class="filled-in {{ type | pokemonTypeColor }}"
-                              />
+                                class="filled-in {{ type | pokemonTypeColor }}" />
 
                               <span>{{ type.name }}</span>
                             </label>
@@ -184,13 +162,14 @@
                 <div class="col s4">
                   <a
                     class="bwaves-effect waves-light btn deep-orange accent-4"
-                    [routerLink]="['/pokemons']"
-                  >
+                    [routerLink]="['/pokemons']">
                     RETOUR
                   </a>
                 </div>
                 <div class="col s4">
-                  <button class="waves-effect waves-light btn deep-orange accent-4" (click)="deletePokemon()">
+                  <button
+                    class="waves-effect waves-light btn deep-orange accent-4"
+                    (click)="deletePokemon()">
                     <i class="material-icons">delete</i>
                     SUPPRIMER
                   </button>

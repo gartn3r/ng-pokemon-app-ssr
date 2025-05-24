@@ -1,4 +1,4 @@
-import { Component, computed, inject, Input, OnInit, Signal, signal } from "@angular/core";
+import { Component, computed, ContentChild, contentChild, ElementRef, inject, Input, OnInit, Signal, signal } from "@angular/core";
 import { Pokemon } from "./pokemon";
 import { PokemonList } from "./mock-pokemon-list";
 import { NgOptimizedImage } from "@angular/common";
@@ -16,6 +16,8 @@ export class PokemonsListComponent implements OnInit {
   @Input() pokemonsResult: PokemonList;
   @Input("selectedPokemon") selectedPokemon = signal<Pokemon | undefined>(undefined);
   @Input("pkmName") poke: string;
+  @ContentChild('labelSearch') labelSearch!: ElementRef;
+  readonly activedPokedex = "oui";
 
   constructor(private router: Router) {}
 
@@ -28,6 +30,11 @@ export class PokemonsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
- 
+
+  }
+
+  ngAfterContentInit() {
+    console.log("la color du contentChild :");
+    console.log(this.labelSearch.nativeElement.style.color);
   }
 }

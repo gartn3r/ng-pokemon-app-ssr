@@ -1,63 +1,61 @@
-import { Component, computed, inject, Input, OnInit, Signal, signal } from "@angular/core";
-import { Pokemon } from "./../pokemon";
-import { PokemonList } from "./../mock-pokemon-list";
-import { NgOptimizedImage } from "@angular/common";
-import { Router } from "@angular/router";
-import { PokemonService } from "./../pokemon.service";
-import { toSignal } from "@angular/core/rxjs-interop";
-import { AuthService } from "../core/auth/auth.service";
+import { Component, computed, inject, OnInit, signal, viewChild } from '@angular/core';
+import { Pokemon } from './../pokemon';
+import { PokemonService } from './../pokemon.service';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { AuthService } from '../core/auth/auth.service';
+import { PokemonsListComponent } from '../PokemonsList.component';
 
 @Component({
   selector: 'search-pokemon',
   templateUrl: './search-pokemon.component.html',
   styleUrls: ['./search-pokemon.component.css'],
-  standalone: false
+  standalone: false,
 })
 export class SearchPokemonComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   readonly #pokemonService = inject(PokemonService);
   readonly authService = inject(AuthService);
+  pokemonListChild = viewChild(PokemonsListComponent);
 
-  searchTerm = signal("");
-  typeSearchTerm = signal("");
+  searchTerm = signal('');
+  typeSearchTerm = signal('');
+  resultCount = computed(() => this.pokemonListChild()?.activedPokedex);
 
-  allPokemons = toSignal(this.#pokemonService.getPokemonList(), { initialValue: [] });
+  allPokemons = toSignal(this.#pokemonService.getPokemonList(), {
+    initialValue: [],
+  });
 
   getPokemonsByType(type: string) {
     if (!type) {
       return this.allPokemons();
     }
 
-    return this.allPokemons().filter(x=> x.types.map(y => y.name.toLowerCase()).includes(type.toLowerCase()));
+    return this.allPokemons().filter(x =>
+      x.types.map(y => y.name.toLowerCase()).includes(type.toLowerCase())
+    );
   }
 
   pokemons = computed(() => {
-    console.log("refresh pokemons");
-    if (this.searchTerm() != "") {
-      console.log("recherche avec searchTerm ");
-console.log(this.allPokemons().filter((x) => x.name.toLowerCase().includes(this.searchTerm().toLowerCase())))
-      return this.allPokemons().filter((x) => x.name.toLowerCase().includes(this.searchTerm().toLowerCase()))
-    }
-    else (this.typeSearchTerm() != "")
+    if (this.searchTerm() != '') {
+      return this.allPokemons().filter(x =>
+        x.name.toLowerCase().includes(this.searchTerm().toLowerCase())
+      );
+    } else this.typeSearchTerm() != '';
     {
-      console.log("recherche avec typeSearchTerm ");
-
-      return this.getPokemonsByType(this.typeSearchTerm())
+      return this.getPokemonsByType(this.typeSearchTerm());
     }
   });
 
-  readonly loading = computed(() => { this.pokemons.length == 0 });
+  readonly loading = computed(() => {
+    this.pokemons.length == 0;
+  });
 
   selectedPokemon: Pokemon;
 
-  searchPokemonByName(){
-    
-  }
+  searchPokemonByName() {}
 
   GetPokemon(searchedPokemon: string) {
     const pokemon = this.#pokemonService.getPokemonByName(searchedPokemon);
@@ -69,8 +67,6 @@ console.log(this.allPokemons().filter((x) => x.name.toLowerCase().includes(this.
   }
 
   ngInit() {
-    console.log("loading : " + this.loading());
+    console.log('loading : ' + this.loading());
   }
-
 }
-
