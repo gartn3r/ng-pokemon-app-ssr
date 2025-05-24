@@ -4,6 +4,7 @@
   "tasks": [
     {
       "type": "npm",
+      "label": "Run Angular App",
       "script": "start",
       "isBackground": true,
       "problemMatcher": {
@@ -19,6 +20,13 @@
           }
         }
       }
+    },
+    {
+      "type": "npm",
+      "label": "Start API",
+      "script": "start:api",
+      "problemMatcher": [],
+      "detail": "json-server db.json"
     }
   ]
 }
