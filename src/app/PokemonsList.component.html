@@ -1,6 +1,5 @@
 <ng-content />
-<div class="container-xl">
-  <div class="row my-1" style="display: flex; flex-direction: row; flex-wrap: wrap">
+  <div class="row">
     <app-card-add-pokemon class="col s12 m6 xl4" id="card-add" [routerLink]="['/pokemons/add']"></app-card-add-pokemon>
     <div *ngFor="let pokemon of pokemonsResult" class="col s12 m6 xl4" [attr.id]="pokemon.id">
       <div
@@ -26,11 +25,11 @@
                 {{ pokemon.created | date : 'dd/MM/YYY' }}
               </p>
               <p>Point de vie : {{ pokemon.hp }}</p>
-              <div class="row" style="display: flex; flex-wrap: nowrap">
+              <div class="row g-1">
                 <span
-                  style="margin-top: 10px"
+                  
                   *ngFor="let type of pokemon.types"
-                  class=" bold {{ type | pokemonTypeColor }}">
+                  class="col s6 m12 xl6 justify-center mt-2 bold {{ type | pokemonTypeColor }}">
                   <b>{{ type }}</b>
                 </span>
               </div>
@@ -40,4 +39,4 @@
       </div>
     </div>
   </div>
-</div>
+

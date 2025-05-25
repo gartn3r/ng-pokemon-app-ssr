@@ -1,35 +1,36 @@
-<div class="input-field">
-  <i class="material-icons prefix">search</i>
-  <input
-    #userInput
-    [value]="searchTerm()"
-    (input)="searchTerm.set(userInput.value)"
-    type="text"
-    placeholder="Rechercher un pokemon ..."
-  />
-</div>
-
-<div class="input-field">
-  <i class="material-icons prefix">search</i>
-  <input
-    #typesearch
-    type="text"
-    placeholder="entrez un type de pokemon"
-    [value]="typeSearchTerm()"
-    (input)="typeSearchTerm.set(typesearch.value)"
-  />
-</div>
-<span style="color: black;">Pokedex activé : {{resultCount()}}</span>
-
-<pokemonsList [pokemonsResult]="pokemons()">
+<div class="container">
   <div class="row">
-    <span #labelSearch style="color: blueviolet;">Pokemons ajoutés au pokédex :</span>
-  </div>
- 
-</pokemonsList>
+    <div class="input-field col s12">
+      <i class="material-icons prefix">search</i>
+      <input
+        #userInput
+        [value]="searchTerm()"
+        (input)="searchTerm.set(userInput.value)"
+        type="text"
+        placeholder="Rechercher un pokemon ..." />
+    </div>
 
-<div *ngIf="loading()">
-  <div class="progress">
-    <div class="indeterminate"></div>
+    <div class="input-field  col s12">
+      <i class="material-icons prefix">search</i>
+      <input
+        #typesearch
+        type="text"
+        placeholder="entrez un type de pokemon"
+        [value]="typeSearchTerm()"
+        (input)="typeSearchTerm.set(typesearch.value)" />
+    </div>
+    <span class="col s12" style="color: black">Pokedex activé : {{ resultCount() }}</span>
+
+    <pokemonsList class="col s12" [pokemonsResult]="pokemons()">
+      <div class="row">
+        <span class=" col s12" #labelSearch style="color: blueviolet">Pokemons ajoutés au pokédex :</span>
+      </div>
+    </pokemonsList>
+
+    <div *ngIf="loading()">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
   </div>
 </div>

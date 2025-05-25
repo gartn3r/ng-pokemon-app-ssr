@@ -1,15 +1,10 @@
-
-<style >
+<style>
   @font-face {
-  font-family: 'MyCustomFont';
-  src: url('../assets/fonts/Pokemon.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+    font-family: 'MyCustomFont';
+    src: url('../assets/fonts/Pokemon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 </style>
 <header-pokemon [title]="title"></header-pokemon>
-<div class="container">
-  <div class="row my-1">
-    <router-outlet />
-  </div>
-</div>
+<router-outlet />

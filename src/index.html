@@ -8,22 +8,35 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+      href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.2.2/dist/css/materialize.min.css" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <style>
       @font-face {
-        font-family: "Pokefont";
-        src: url("assets/fonts/Pokemon_Solid.ttf") format("truetype");
+        font-family: 'Pokefont';
+        src: url('assets/fonts/Pokemon_Solid.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
       }
 
       .pokefont {
-        font-family: "Pokefont";
+        font-family: 'Pokefont';
+      }
+
+      .card {
+        border-radius: 0;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .table-noborder tr {
+        border: 0;
+      }
+
+      input[type='number'] {
+        border-bottom: 0;
       }
     </style>
   </head>
@@ -40,7 +53,17 @@
         margin-top: 10px;
         margin-bottom: 10px;
       }
+
+      .btn.disabled {
+        pointer-events: none;
+        background-color: #dfdfdf !important;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #9f9f9f !important;
+        cursor: default;
+      }
     </style>
     <app-root></app-root>
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.2.2/dist/js/materialize.min.js"></script>
   </body>
 </html>

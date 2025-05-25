@@ -1,5 +1,6 @@
 <div class="container">
-    <div class="row">
+    <div class="row mt-5">
+        <div class="col s6 offset-s3">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)" class="col s12 z-depth-2" style="padding: 2rem; background: #fff; border-radius: 8px;">
             <h5 class="center-align">Login</h5>
             <div class="row">
@@ -14,14 +15,15 @@
                     
                 </div>
             </div>
-            <div class="row center-align">
-                <button class="btn waves-effect waves-light" type="submit">Login</button>
+            <div class="center-align">
+                <button class="mt-5 btn filled deep-orange accent-4" type="submit">Login</button>
             </div>
-            <div   [attr.data-error]="error()">
+            <div [attr.data-error]="error()">
                 <div class=" lighten-2 red-text"> {{error()}}</div>
             </div>
 
             
         </form>
+        </div>
     </div>
 </div>

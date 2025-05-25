@@ -46,7 +46,7 @@ export class PokemonAddComponent implements OnInit {
       Validators.pattern(POKEMON_RULES.PICTURE_URL_PATTERN),
     ]),
     types: new FormArray(
-      [new FormControl(pokemonTypes[0])],
+      [new FormControl(pokemonTypes[0].name)],
       [Validators.required, Validators.maxLength(POKEMON_RULES.MAX_TYPES - 1)]
     ),
   });
@@ -71,11 +71,11 @@ export class PokemonAddComponent implements OnInit {
     return this.form.get('types') as FormArray;
   }
 
-  isPokemonTypeSelected(type: PokemonType): boolean {
+  isPokemonTypeSelected(type: string): boolean {
     return !!this.pokemonTypeList.controls.find(x => x.value == type);
   }
 
-  onPokemonTypeChange(type: PokemonType, isChecked: boolean) {
+  onPokemonTypeChange(type: string, isChecked: boolean) {
     if (isChecked) {
       const newTypeControl = new FormControl(type);
       this.pokemonTypeList.push(newTypeControl);
