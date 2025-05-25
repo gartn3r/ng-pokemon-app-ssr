@@ -27,7 +27,6 @@
               <p>Point de vie : {{ pokemon.hp }}</p>
               <div class="row g-1">
                 <span
-                  
                   *ngFor="let type of pokemon.types"
                   class="col s6 m12 xl6 justify-center mt-2 bold {{ type | pokemonTypeColor }}">
                   <b>{{ type }}</b>

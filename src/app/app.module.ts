@@ -15,7 +15,7 @@ import { SearchPokemonComponent } from './search-pokemon/search-pokemon.componen
 import { PokemonEditComponent } from './pokemon-edit/pokemon-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HeaderPokemonComponent } from './header-pokemon/header-pokemon.component';
@@ -25,6 +25,8 @@ import { IPokemonService } from './pokemon.service';
 import { environment } from '../environments/environment';
 import { PokemonLocalStorageService } from './PokemonLocalStorageService';
 import { PokemonServerService } from './pokemonServer.service';
+import { InjectionToken } from '@angular/core';
+import { PokedexConfig, providePokemonConfig } from './PokedexConfig';
 
 export function pokemonServiceFactory(): IPokemonService {
   return environment.production ? new PokemonLocalStorageService() : new PokemonServerService();
@@ -62,6 +64,7 @@ export function providePokemonService() {
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
     providePokemonService(),
+    providePokemonConfig(),
   ],
   bootstrap: [AppComponent],
 })

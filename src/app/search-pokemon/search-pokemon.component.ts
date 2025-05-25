@@ -4,6 +4,7 @@ import { IPokemonService } from './../pokemon.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { AuthService } from '../core/auth/auth.service';
 import { PokemonsListComponent } from '../PokemonsList.component';
+import { POKEDEX_CONFIG, PokedexConfig } from '../PokedexConfig';
 
 @Component({
   selector: 'search-pokemon',
@@ -18,6 +19,7 @@ export class SearchPokemonComponent implements OnInit {
 
   readonly #pokemonService = inject(IPokemonService);
   readonly authService = inject(AuthService);
+  readonly pokedexConfig: PokedexConfig = inject(POKEDEX_CONFIG);
   pokemonListChild = viewChild(PokemonsListComponent);
 
   searchTerm = signal('');

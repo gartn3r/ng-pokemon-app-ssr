@@ -19,7 +19,7 @@
         [value]="typeSearchTerm()"
         (input)="typeSearchTerm.set(typesearch.value)" />
     </div>
-    <span class="col s12" style="color: black">Pokedex activé : {{ resultCount() }}</span>
+    <span class="col s12" style="color: black">Pokedex activé ({{pokedexConfig.version}}) : {{ resultCount() }}</span>
 
     <pokemonsList class="col s12" [pokemonsResult]="pokemons()">
       <div class="row">
