@@ -34,6 +34,6 @@ jobs:
       - name: Deploy to Firebase Hosting
         uses: w9jds/firebase-action@v14.4.0
         with:
-          args: deploy --only hosting
+          args: deploy --only hosting:pokemon-app-2f5f0
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
