@@ -1,5 +1,6 @@
 <ng-content />
   <div class="row">
+    <p>TEST</p>
     <app-card-add-pokemon class="col s12 m6 xl4" id="card-add" [routerLink]="['/pokemons/add']"></app-card-add-pokemon>
     <div *ngFor="let pokemon of pokemonsResult" class="col s12 m6 xl4" [attr.id]="pokemon.id">
       <div
