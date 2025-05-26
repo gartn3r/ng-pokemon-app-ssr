@@ -3,29 +3,41 @@ import { IPokemonService } from './pokemon.service';
 import { Pokemon } from './pokemon';
 import { PokemonList, POKEMONS, pokemonTypes } from './mock-pokemon-list';
 import { PokemonType } from './pokemons interfaces/pokemonType';
+import { inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export class PokemonLocalStorageService implements IPokemonService {
   private localStorageKey = 'pokemons';
+  private platformId = inject(PLATFORM_ID);
+
   allPokemons: PokemonList;
   // Initialise les données dans le localStorage si elles n'existent pas encore.
   private initializePokemons(): void {
     const storedPokemons = localStorage.getItem(this.localStorageKey);
     if (!storedPokemons) {
       const initialPokemons: Pokemon[] = POKEMONS;
-      localStorage.setItem(this.localStorageKey, JSON.stringify(initialPokemons));
+      if (isPlatformBrowser(this.platformId)) {
+        localStorage.setItem(this.localStorageKey, JSON.stringify(initialPokemons));
+      }
     }
   }
 
   // Récupère la liste des Pokémons depuis le localStorage.
   private getPokemonsFromStorage(): Pokemon[] {
     this.initializePokemons();
-    const pokemons = localStorage.getItem(this.localStorageKey);
-    return pokemons ? JSON.parse(pokemons) : [];
+    if (isPlatformBrowser(this.platformId)) {
+      const pokemons = localStorage.getItem(this.localStorageKey);
+      return pokemons ? JSON.parse(pokemons) : [];
+    } else {
+      return [];
+    }
   }
 
   // Sauvegarde la liste des Pokémons dans le localStorage.
   private savePokemonsToStorage(pokemons: Pokemon[]): void {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(pokemons));
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(this.localStorageKey, JSON.stringify(pokemons));
+    }
   }
 
   // Retourne la liste de tous les Pokémons.

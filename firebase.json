@@ -1,11 +1,7 @@
 {
   "hosting": {
-    "public": "dist/ng-pokemon-app/browser",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "public": "dist/ng-pokemon-app-ssr/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
