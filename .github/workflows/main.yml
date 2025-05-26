@@ -1,0 +1,39 @@
+name: Deploy Angular App to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Remove node_modules and package-lock.json
+        run: |
+          rm -rf node_modules package-lock.json
+      
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: npm run build -- --configuration=production
+
+      - name: Deploy to Firebase Hosting
+        uses: w9jds/firebase-action@v14.4.0
+        with:
+          args: deploy --only hosting:pokemon-app-2f5f0
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
